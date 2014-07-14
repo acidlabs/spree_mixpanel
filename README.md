@@ -1,7 +1,7 @@
 SpreeMixpanel
 =============
 
-Compatible with 2-1-stable
+Spree integration with Mixpanel
 
 Installation
 ------------
@@ -9,7 +9,7 @@ Installation
 Add spree_mixpanel to your Gemfile:
 
 ```ruby
-gem 'spree_mixpanel'
+gem 'spree_mixpanel', git: 'git@github.com:marcosteixeira/spree_mixpanel.git', branch: '2-1-stable'
 ```
 
 Bundle your dependencies and run the installation generator:
@@ -18,6 +18,37 @@ Bundle your dependencies and run the installation generator:
 bundle
 bundle exec rails g spree_mixpanel:install
 ```
+
+Usage
+------------
+
+Add your Mixpanel credentials to `config/initializers/mixpanel.rb`:
+
+```ruby
+Spree::Mixpanel::Config.configure do |config|
+  config.connection_token = "YOUR TOKEN"
+end
+```
+
+### Storing user profiles
+
+```ruby
+@user.mixpanel_track_user
+```
+
+By default, we send `first_name`, `last_name`, and `email` from user. You can override user `mixpanel_personal_fields` and return personalized fields.
+
+```ruby
+User.class_eval do
+  def mixpanel_personal_fields
+    { 
+      'My Field' => 'FIELD',
+      'Total sales' => self.total_sales
+    }
+  end
+end
+```
+
 
 Testing
 -------
@@ -37,4 +68,4 @@ Simply add this require statement to your spec_helper:
 require 'spree_mixpanel/factories'
 ```
 
-Copyright (c) 2014 [name of extension creator], released under the New BSD License
+Copyright (c) 2014, released under the New BSD License
