@@ -1,7 +1,7 @@
 SpreeMixpanel
 =============
 
-Introduction goes here.
+Compatible with 2-1-stable
 
 Installation
 ------------
