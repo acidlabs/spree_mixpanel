@@ -11,6 +11,10 @@ module SpreeMixpanel
       g.test_framework :rspec
     end
 
+    initializer "spree.mixpanel.environment", :before => :load_config_initializers do |app|
+      Spree::Mixpanel::Config = Spree::MixpanelConfiguration.new
+    end
+
     def self.activate
       Dir.glob(File.join(File.dirname(__FILE__), '../../app/**/*_decorator*.rb')) do |c|
         Rails.configuration.cache_classes ? require(c) : load(c)
