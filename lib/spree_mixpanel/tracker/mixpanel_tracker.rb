@@ -2,11 +2,11 @@ require 'mixpanel-ruby'
 
 module MixpanelTracker
 
-  def self.track_user(email, opts={})
+  def self.track_user(email, opts)
     tracker.people.set(email, opts)
   end
 
-  def self.track_order(order, options={})
+  def self.track_order(order)
    tracker.track(order.email, order.mixpanel_event_message, order.mixpanel_fields.merge(order.mixpanel_personal_fields))
   end
 

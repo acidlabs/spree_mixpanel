@@ -3,7 +3,7 @@ module Spree
   User.class_eval do
 
     def mixpanel_track_user
-      MixpanelTracker.track_user(email, mixpanel_fields.merge(mixpanel_personal_fields))
+      MixpanelUsersWorker.perform_async(email, mixpanel_fields.merge(mixpanel_personal_fields))
     end
 
     def mixpanel_personal_fields

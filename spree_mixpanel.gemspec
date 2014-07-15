@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'spree_core'
   s.add_dependency 'mixpanel-ruby', '~> 1.4.0'
+  s.add_dependency 'sidekiq', '~> 3.2.1'
 
   s.add_development_dependency 'capybara', '~> 2.1'
   s.add_development_dependency 'coffee-rails'

@@ -3,7 +3,7 @@ module Spree
   Order.class_eval do
 
     def mixpanel_track_order
-      MixpanelTracker.track_order(self)
+      MixpanelOrdersWorker.perform_async(self.id)
     end
 
     def mixpanel_fields

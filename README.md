@@ -19,6 +19,16 @@ bundle
 bundle exec rails g spree_mixpanel:install
 ```
 
+Run your redis server
+```shell
+redis-server
+```
+
+Execute Sidekiq
+```shell
+bundle exec sidekiq
+```
+
 Usage
 ------------
 
