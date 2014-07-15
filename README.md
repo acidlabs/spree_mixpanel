@@ -1,4 +1,4 @@
-SpreeMixpanel
+SpreeMixpanel (master is not implemented yet. See 2-1-stable branch)
 =============
 
 Introduction goes here.
