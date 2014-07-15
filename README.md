@@ -51,6 +51,10 @@ end
 
 ### Sending orders to mixpanel
 
+```ruby
+@order.mixpanel_track_order
+```
+
 By default, we send `number`, `total`, `state`, `email` and `payment_state` from order. You can override order `mixpanel_personal_fields` and return personalized fields.
 
 ```ruby
