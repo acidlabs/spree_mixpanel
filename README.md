@@ -51,12 +51,12 @@ end
 
 ### Sending orders to mixpanel
 
-By default, we send `number`, `total`, `state`, `email` and `payment_state` from order. You can override user `mixpanel_personal_fields` and return personalized fields.
+By default, we send `number`, `total`, `state`, `email` and `payment_state` from order. You can override order `mixpanel_personal_fields` and return personalized fields.
 
 ```ruby
 Order.class_eval do
   def mixpanel_personal_fields
-    { 
+    {
       'My Field' => 'FIELD',
       'Personal amout' => self.personal_amount
     }
