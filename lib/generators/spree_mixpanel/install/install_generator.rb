@@ -2,6 +2,12 @@ module SpreeMixpanel
   module Generators
     class InstallGenerator < Rails::Generators::Base
 
+      source_root File.expand_path("../templates", __FILE__)
+
+      def copy_initializer
+        copy_file "mixpanel.rb", "config/initializers/mixpanel.rb"
+      end
+
       class_option :auto_run_migrations, :type => :boolean, :default => false
 
       def add_javascripts
