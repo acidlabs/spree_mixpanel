@@ -11,13 +11,13 @@ Gem::Specification.new do |s|
   s.email     = 'm.viniteixeira@gmail.com'
   s.homepage  = 'https://github.com/marcosteixeira/spree_mixpanel'
 
-  s.files       = `git ls-files`.split("\n")
-  s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
+  #s.files       = `git ls-files`.split("\n")
+  #s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_core', '>= 2.1.8.beta'
-  s.add_dependency 'mixpanel-ruby', '>= 1.4.0'
+  s.add_dependency 'spree_core'
+  s.add_dependency 'mixpanel-ruby', '~> 1.4.0'
 
   s.add_development_dependency 'capybara', '~> 2.1'
   s.add_development_dependency 'coffee-rails'
