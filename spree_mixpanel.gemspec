@@ -18,7 +18,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'spree_core'
   s.add_dependency 'mixpanel-ruby', '~> 1.4.0'
-  s.add_dependency 'sidekiq', '~> 3.2.1'
 
   s.add_development_dependency 'database_cleaner'
   s.add_development_dependency 'factory_girl', '~> 4.2'

@@ -3,7 +3,7 @@ module Spree
   Order.class_eval do
 
     def mixpanel_track_order
-      MixpanelOrdersWorker.perform_async(self.id)
+      Mixpanel::EventHandler.new('event' => :order, 'order_id' => self.id).handle_event
     end
 
     def mixpanel_fields

@@ -3,7 +3,11 @@ module Spree
   User.class_eval do
 
     def mixpanel_track_user
-      MixpanelUsersWorker.perform_async(email, mixpanel_fields.merge(mixpanel_personal_fields))
+      Mixpanel::EventHandler.new('event' => :user, 'user_email' => self.email, 'user_opts' => mixpanel_opts).handle_event
+    end
+
+    def mixpanel_opts
+      mixpanel_fields.merge(mixpanel_personal_fields)
     end
 
     def mixpanel_personal_fields
