@@ -1,7 +1,7 @@
 SpreeMixpanel
 =============
 
-[Spree](http://spreecommerce.com/) integration with Mixpanel
+[Spree](http://spreecommerce.com/) integration with [Mixpanel](https://mixpanel.com)
 
 Installation
 ------------
@@ -57,7 +57,8 @@ User.class_eval do
   def mixpanel_personal_fields
     { 
       'My Field' => 'FIELD',
-      'Total sales' => self.total_sales
+      'Total sales' => self.total_sales # personalized method in your
+user model
     }
   end
 end
@@ -76,8 +77,8 @@ Order.class_eval do
   def mixpanel_personal_fields
     {
       'My Field' => 'FIELD',
-      'Personal amout' => self.personal_amount
-    }
+      'Personal amount' => self.personal_amount
+    }:
   end
 end
 ```
