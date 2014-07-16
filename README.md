@@ -1,7 +1,7 @@
 SpreeMixpanel
 =============
 
-Spree integration with Mixpanel
+[Spree](http://spreecommerce.com/) integration with Mixpanel
 
 Installation
 ------------
@@ -18,6 +18,10 @@ Bundle your dependencies and run the installation generator:
 bundle
 bundle exec rails g spree_mixpanel:install
 ```
+
+### Sidekiq (Optional)
+
+In order to upload data to mixpanel in background you can use [Sidekiq](http://sidekiq.org/) gem.
 
 Run your redis server
 ```shell
