@@ -9,7 +9,7 @@ module Spree
     def mixpanel_fields
       {
         'Number' => number,
-        'Total' => total,
+        'Total' => "%.2f" % total,
         'State' => state,
         'User email' => email,
         'Payment state' => payment_state

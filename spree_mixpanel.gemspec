@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_mixpanel'
-  s.version     = '2.1.8.beta'
+  s.version     = '2.1.8'
   s.summary     = 'Spree/Mixpanel integration'
   s.description =  s.summary
   s.required_ruby_version = '>= 1.9.3'
