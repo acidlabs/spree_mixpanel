@@ -57,8 +57,7 @@ User.class_eval do
   def mixpanel_personal_fields
     { 
       'My Field' => 'FIELD',
-      'Total sales' => self.total_sales # personalized method in your
-user model
+      'Total sales' => self.total_sales # personalized method in your user model
     }
   end
 end
