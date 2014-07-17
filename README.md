@@ -77,7 +77,42 @@ Order.class_eval do
     {
       'My Field' => 'FIELD',
       'Personal amount' => self.personal_amount
-    }:
+    }
+  end
+end
+```
+### Tracking order revenue
+
+```ruby
+@order.mixpanel_track_charges
+```
+
+By default paid orders revenue  are automatically sent to mixpanel.
+
+You can change this behaviour changing `push_order_charges` configuration.
+
+```ruby
+# config/initializers/mixpanel.rb
+Spree::Mixpanel::Config.configure do |config|
+  config.push_order_charges = false # true by default
+end
+```
+
+You can override `mixpanel_total`.
+
+```ruby
+Order.class_eval do
+  def mixpanel_total
+    100 # personalized total
+  end
+end
+```
+In order to send personalized fields you can override `mixpanel_charge_fields`
+
+```ruby
+Order.class_eval do
+  def mixpanel_charge_fields
+    {'User name' => user_name } # personalized field
   end
 end
 ```

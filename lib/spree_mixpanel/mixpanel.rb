@@ -25,7 +25,7 @@ module Spree
         when :order
           MixpanelTracker.track_order(order_id)
         when :charge
-          # Tracker ainda não implentado
+          MixpanelTracker.track_charge(order_id)
         end
       end
 
