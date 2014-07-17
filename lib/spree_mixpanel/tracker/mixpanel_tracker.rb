@@ -14,7 +14,7 @@ module MixpanelTracker
 
   def self.track_charge(order_id)
     order = Spree::Order.find(order_id)
-    tracker.people.track_charge(order.email, order.mixpanel_total, order.mixpanel_charge_fields)
+    tracker.people.track_charge(order.email, order.mixpanel_total, {'$time' => I18n.l(DateTime.now, format: "%Y-%m-%dT%H:%M:%S")}.merge(order.mixpanel_charge_fields))
   end
 
   class MixpanelApiError < StandardError; end

@@ -55,7 +55,7 @@ By default, we send `first_name`, `last_name`, and `email` from user. You can ov
 ```ruby
 User.class_eval do
   def mixpanel_personal_fields
-    { 
+    {
       'My Field' => 'FIELD',
       'Total sales' => self.total_sales # personalized method in your user model
     }
@@ -107,7 +107,7 @@ Order.class_eval do
   end
 end
 ```
-In order to send personalized fields you can override `mixpanel_charge_fields`
+By default we send the revenue time. In order to send personalized fields you can override `mixpanel_charge_fields`
 
 ```ruby
 Order.class_eval do
