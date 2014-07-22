@@ -6,7 +6,6 @@ module Spree
         @opts = opts
         @event = opts["event"].try(:to_sym)
         @user_email = opts["user_email"]
-        @user_opts = opts["user_opts"]
         @order_id = opts["order_id"]
       end
 
@@ -21,7 +20,7 @@ module Spree
       def mixpanel_perform
         case event
         when :user
-          MixpanelTracker.track_user(user_email, user_opts)
+          MixpanelTracker.track_user(user_email)
         when :order
           MixpanelTracker.track_order(order_id)
         when :charge
@@ -31,7 +30,7 @@ module Spree
 
       private
 
-      attr_reader :opts, :event, :user_email, :user_opts, :order_id
+      attr_reader :opts, :event, :user_email, :order_id
 
       def has_sidekiq?
         @has_sidekiq ||= begin

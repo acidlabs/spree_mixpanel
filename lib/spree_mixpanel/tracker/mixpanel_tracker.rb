@@ -2,8 +2,9 @@ require 'mixpanel-ruby'
 
 module MixpanelTracker
 
-  def self.track_user(email, opts)
-    tracker.people.set(email, opts)
+  def self.track_user(email)
+    user = Spree.user_class.find_by_email(email)
+    tracker.people.set(email, user.mixpanel_opts)
   end
 
   def self.track_order(order_id)
