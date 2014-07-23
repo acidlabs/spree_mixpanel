@@ -7,10 +7,10 @@ module Spree
     end
 
     def mixpanel_opts
-      mixpanel_fields.merge(mixpanel_personal_fields)
+      mixpanel_fields.merge(mixpanel_personalized_fields)
     end
 
-    def mixpanel_personal_fields
+    def mixpanel_personalized_fields
       {}
     end
 

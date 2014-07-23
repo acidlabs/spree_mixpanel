@@ -9,7 +9,7 @@ module MixpanelTracker
 
   def self.track_order(order_id)
     order = Spree::Order.find(order_id)
-    tracker.track(order.email, order.mixpanel_event_message, order.mixpanel_fields.merge(order.mixpanel_personal_fields))
+    tracker.track(order.email, order.mixpanel_event_message, order.mixpanel_fields.merge(order.mixpanel_personalized_fields))
     track_charge(order.id) if push_order_charges? && order.paid?
   end
 

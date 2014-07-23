@@ -50,11 +50,11 @@ end
 @user.mixpanel_track_user
 ```
 
-By default, we send `first_name`, `last_name`, and `email` from user. You can override user `mixpanel_personal_fields` and return personalized fields.
+By default, we send `first_name`, `last_name`, and `email` from user. You can override user `mixpanel_personalized_fields` and return personalized fields.
 
 ```ruby
 User.class_eval do
-  def mixpanel_personal_fields
+  def mixpanel_personalized_fields
     {
       'My Field' => 'FIELD',
       'Total sales' => self.total_sales # personalized method in your user model
@@ -69,11 +69,11 @@ end
 @order.mixpanel_track_order
 ```
 
-By default, we send `number`, `total`, `state`, `email` and `payment_state` from order. You can override order `mixpanel_personal_fields` and return personalized fields.
+By default, we send `number`, `total`, `state`, `email` and `payment_state` from order. You can override order `mixpanel_personalized_fields` and return personalized fields.
 
 ```ruby
 Order.class_eval do
-  def mixpanel_personal_fields
+  def mixpanel_personalized_fields
     {
       'My Field' => 'FIELD',
       'Personal amount' => self.personal_amount

@@ -24,7 +24,7 @@ module Spree
       {}
     end
 
-    def mixpanel_personal_fields
+    def mixpanel_personalized_fields
       {}
     end
 
