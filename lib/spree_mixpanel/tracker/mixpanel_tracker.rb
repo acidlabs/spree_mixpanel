@@ -18,12 +18,18 @@ module MixpanelTracker
     tracker.people.track_charge(order.email, order.mixpanel_total, {'$time' => I18n.l(DateTime.now, format: "%Y-%m-%dT%H:%M:%S")}.merge(order.mixpanel_charge_fields))
   end
 
+  def self.track_event(user_email,name, opts={})
+    tracker.track(user_email, name, opts)
+  end
+
   class MixpanelApiError < StandardError; end
 
   private
   def self.tracker
     validate_connection_token
-    @tracker ||= Mixpanel::Tracker.new(connection_token)
+    @tracker ||= Mixpanel::Tracker.new(connection_token) do |type, message|
+          tracker_log.write([ type, message ].to_json + "\n")
+    end
   end
 
   def self.connection_token
@@ -32,6 +38,10 @@ module MixpanelTracker
 
   def self.push_order_charges?
     @push_charges ||= Spree::Mixpanel::Config[:push_order_charges]
+  end
+
+  def self.tracker_log
+    @tracker_log ||= open("MIXPANEL_LOG.txt", "w+")
   end
 
   def self.validate_connection_token
