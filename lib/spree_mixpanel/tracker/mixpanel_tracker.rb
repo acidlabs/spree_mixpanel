@@ -27,9 +27,7 @@ module MixpanelTracker
   private
   def self.tracker
     validate_connection_token
-    @tracker ||= Mixpanel::Tracker.new(connection_token) do |type, message|
-          tracker_log.write([ type, message ].to_json + "\n")
-    end
+    @tracker ||= Mixpanel::Tracker.new(connection_token)
   end
 
   def self.connection_token
@@ -40,11 +38,7 @@ module MixpanelTracker
     @push_charges ||= Spree::Mixpanel::Config[:push_order_charges]
   end
 
-  def self.tracker_log
-    @tracker_log ||= open("MIXPANEL_LOG.txt", "w+")
-  end
-
   def self.validate_connection_token
-    raise MixpanelApiError, "Mixpanel connection token is required" if !connection_token.present?
+    raise MixpanelApiError, "Mixpanel connection token is required" unless connection_token.present?
   end
 end
