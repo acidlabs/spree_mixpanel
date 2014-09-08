@@ -13,7 +13,11 @@ module Spree
 
       def handle_event
         if has_sidekiq?
-          SpreeMixpanelWorker.perform_async(opts)
+          begin
+            SpreeMixpanelWorker.perform_async(opts)
+          rescue Redis::CannotConnectError
+            Rails.logger.info "Cannot connect with Redis"
+          end
         else
           mixpanel_perform
         end
