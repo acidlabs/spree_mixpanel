@@ -1,4 +1,4 @@
-SpreeMixpanel (master is not implemented yet. See [2-1-stable branch](https://github.com/marcosteixeira/spree_mixpanel/tree/2-1-stable))
+SpreeMixpanel (master is not implemented yet. See [2-1-stable](https://github.com/marcosteixeira/spree_mixpanel/tree/2-1-stable) or [2-2-stable](https://github.com/marcosteixeira/spree_mixpanel/tree/2-2-stable) branches)
 =============
 
 [Spree](http://spreecommerce.com/) integration with [Mixpanel](https://mixpanel.com)
