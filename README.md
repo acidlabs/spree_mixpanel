@@ -9,6 +9,8 @@ Installation
 Add spree_mixpanel to your Gemfile:
 
 ```ruby
+gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch:
+'2-2-stable'
 gem 'spree_mixpanel', git: 'git@github.com:marcosteixeira/spree_mixpanel.git', branch: '2-1-stable'
 ```
 
