@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_mixpanel'
-  s.version     = '2.2.0'
+  s.version     = '2.3.0'
   s.summary     = 'Spree/Mixpanel integration'
   s.description =  s.summary
   s.required_ruby_version = '>= 1.9.3'
@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  spree_version = '~> 2.2.0'
+  spree_version = '~> 2.3.0'
   s.add_dependency 'spree_core', spree_version
   s.add_dependency 'mixpanel-ruby', '~> 1.4.0'
 
