@@ -1,6 +1,6 @@
 module Spree
-
   Order.class_eval do
+    after_update :mixpanel_track_order
 
     def mixpanel_track_order
       Mixpanel::EventHandler.new('event' => :order, 'order_id' => self.id).handle_event

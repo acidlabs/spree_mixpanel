@@ -1,6 +1,6 @@
 module Spree
-
   User.class_eval do
+    after_create :mixpanel_track_user
 
     def mixpanel_track_user
       Mixpanel::EventHandler.new('event' => :user, 'user_email' => self.email).handle_event
